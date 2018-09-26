@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      KEY: 'list',
+      KEY: 'singer',
       model,
       modelScheme,
       rules,

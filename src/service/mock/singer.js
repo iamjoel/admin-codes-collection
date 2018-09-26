@@ -29,7 +29,10 @@ Mock.mock(new RegExp(`${SERVER_PREFIX}/singer/list`), 'get', ({ url, body }) => 
 Mock.mock(new RegExp(`${SERVER_PREFIX}/singer/add`), 'post', ({ url, body }) => {
   console.info(`Mock POST. URL: ${url}`)
 
-  singerList.unshift(JSON.parse(body))
+  singerList.unshift({
+    id: singerList.length,
+    ...JSON.parse(body),
+  })
   return {
     data: singerList,
     pager: {

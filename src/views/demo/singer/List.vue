@@ -21,9 +21,7 @@
           prop="name"
           label="名称"
         >
-
         </el-table-column>
-
         <el-table-column
           prop="op"
           label="操作"

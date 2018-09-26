@@ -92,11 +92,13 @@ export default {
         var value = null
         switch(item.dataType) {
           case 'string':
-            default:
             value = `${key}-测试`
             break;
           case 'number':
             value = Math.ceil(Math.random() * 50)
+            break;
+          case 'bool':
+            value = 1
             break;
           case 'date':
             value = moment().format('YYYY-MM-DD')
@@ -117,6 +119,8 @@ export default {
               return // 异步的，防止被重置
             }
             break;
+          default:
+            value = `${key}-未知数据类型`
         }
         this.model[key] = value
       })

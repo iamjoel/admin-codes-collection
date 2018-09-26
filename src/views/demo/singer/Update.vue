@@ -66,8 +66,8 @@
         </div>
       </j-edit-item>
 
-      <j-edit-item  label="描述" prop="des" :is-view="isView" :view-value="model.des">
-        <el-input v-model="model.des"></el-input>
+      <j-edit-item  label="描述" prop="des" fill :is-view="isView" :view-value="model.des">
+        <el-input v-model="model.des" type="textarea" :rows="3"></el-input>
       </j-edit-item>
     </el-row>
   </el-form>
