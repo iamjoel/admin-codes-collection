@@ -3,6 +3,8 @@ import modelScheme from './model'
 import JRemoteSelect from '@/components/remote-select'
 import deepClone from 'clone'
 
+import {fetchList} from '@/service/api'
+
 var model = {
   "moreInfo": {},
   "name": null,
@@ -42,12 +44,27 @@ export default {
       model,
       modelScheme,
       rules,
-    }  
+      singerList: [],
+      isShowDialog: false,
+
+      allSingerList: [],
+      selectedSinger: [],
+      tempSelectedSinger: [],
+      singerPager: {
+        current: 1,
+        total: 1
+      },
+      
+    }
+  },
+  computed: {
+    tempSelectedSingerName() {
+      this.tempSelectedSinger.map(item => item.name).join(',')
+    }
   },
   methods: {
     formatFetchData(model) {
       model = deepClone(model)
-
       // 下拉框赋值
       if(!this.isView) {
 
@@ -62,7 +79,6 @@ export default {
 
       return model
     },
-
     avatarLoaded(data) {
       this.handleUploadImageSuccess('avatar', data.data)
     },
@@ -71,9 +87,32 @@ export default {
       imgs.push(data.data)
       this.model.imgs = imgs.join(',')
     },
-
+    removeSinger(id) {
+      this.selectedSinger = this.selectedSinger.filter(item => item.id !== id)
+    },
+    chooseSinger() {
+      this.selectedSinger.unshift(...this.tempSelectedSinger)
+      this.tempSelectedSinger = []
+      this.isShowDialog = false
+    },
+    handleCurrentChange(currentPage) {
+      this.singerPager.current = currentPage
+      this.fetch()
+    },
+    fetch() {
+      fetchList(this.KEY, undefined, this.singerPager)
+      .then(({ data }) => {
+        if(!data.errorCode) {
+          this.singerPager.total = data.pager.total
+          this.allSingerList = data.data
+        }
+      })
+    },
+    handleSelectChange(val) {
+      this.tempSelectedSinger = [...val]
+    }
   },
   mounted() {
-    
+    this.fetch()
   }
 }

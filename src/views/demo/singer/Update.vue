@@ -66,12 +66,86 @@
         </div>
       </j-edit-item>
 
+      
       <j-edit-item  label="描述" prop="des" fill :is-view="isView" :view-value="model.des">
         <el-input v-model="model.des" type="textarea" :rows="3"></el-input>
       </j-edit-item>
     </el-row>
   </el-form>
-  
+
+  <el-card class="box-card">
+    <div class="ly ly-j ly-m mb-20">
+      <span class="box-title">歌手朋友</span>
+      <el-button type="success" icon="plus" @click="isShowDialog = true">新增</el-button>
+    </div>
+    <el-table
+      :data="selectedSinger"
+      border
+      stripe>
+      <el-table-column
+        type="index"
+        label="序列"
+        align="center"
+        width="80">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        >
+      </el-table-column>
+      <el-table-column
+        prop="op"
+        label="操作"
+        >
+        <template slot-scope="scope">
+          <el-button type="danger" size="small" @click="removeSinger(scope.row.id)">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+  </el-card>
+
+
+  <el-dialog 
+    title="弹出框"
+    :visible.sync="isShowDialog"
+  >
+    <div class="mb-20">
+      已选择:  {{tempSelectedSingerName}}
+    </div>
+    <el-table
+      :data="allSingerList"
+      @selection-change="handleSelectChange"
+      border
+      stripe
+    >
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
+      <el-table-column
+        prop="name"
+        label="姓名"
+        >
+      </el-table-column>
+    </el-table>
+    <div class="pager mt-20">
+      <el-row type="flex" justify="end">
+        <el-pagination
+            @current-change="handleCurrentChange"
+            :current-page="singerPager.current"
+            :page-size="10"
+            layout="total, prev, pager, next, jumper"
+            :total="singerPager.total"
+            class="right">
+          </el-pagination>
+      </el-row>
+    </div>
+    <span slot="footer" class="dialog-footer">
+      <el-button @click="isShowDialog = false">取 消</el-button>
+      <el-button type="primary" @click="chooseSinger">确 定</el-button>
+    </span>
+  </el-dialog>
+
   <el-row type="flex" justify="center" class="mb-20">
     <el-button @click="$router.go(-1)">返回</el-button>
     <el-button type="success" @click="save" v-if="!isView">保存</el-button>
