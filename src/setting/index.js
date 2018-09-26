@@ -1,4 +1,4 @@
-export const title = '娱乐' // 页面标题，以及 topbar 上的文字。
+export const title = '管理后台代码库' // 页面标题，以及 topbar 上的文字。
 
 var HOST
 var imgPrefix

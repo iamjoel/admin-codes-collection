@@ -2,8 +2,7 @@ import listMixin from '@/mixin/list'
 import JRemoteSelect from '@/components/remote-select'
 
 var searchConditions = {
-  name: '',
-  type: ''
+
 }
 
 var operateConfig = {
@@ -28,7 +27,7 @@ export default {
   },
   data() {
     return {
-      KEY: 'song',
+      KEY: 'singer',
       searchConditions,
     }  
   },
@@ -41,12 +40,7 @@ export default {
         return isShow
       }
     },
-    formatType(row) {
-      return this.getDictName('musicType', row.type)
-    },
-    doSth(row) {
-      return row.singer.name + row.name
-    }
+
   },
   mounted() {
     

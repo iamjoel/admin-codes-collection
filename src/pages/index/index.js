@@ -31,6 +31,7 @@ utilFns.forEach(fn => {
 
 import axios from 'axios'
 require('@/service/interceptor') // axios 拦截器，做通用报错等
+require('@/service/mock') // mock 数据
 Vue.prototype.$http = axios
 
 import store from '@/store'

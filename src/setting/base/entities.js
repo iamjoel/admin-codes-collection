@@ -1,14 +1,10 @@
 export default [
 	{
-		"id": "58bec585-cb7b-4b21-c121-6a93db8e2428",
-		"parentId": "b74b632e-b263-1bb3-11f7-0d62e295f254",
-		"key": "singer",
-		"label": "歌手"
-	},
-	{
-		"id": "e033884b-b52c-405a-6d58-c09fe3694c9e",
-		"parentId": "b74b632e-b263-1bb3-11f7-0d62e295f254",
-		"key": "song",
-		"label": "歌曲"
+		"id": "95dc1e2d-cd02-7d73-3350-1a79a4a0b3ce",
+		"key": "list",
+		"label": "列表",
+		"parentId": "ea507603-c1d8-0c0c-8cb3-6bd001872f5d",
+		"order": null,
+		"roleIds": ""
 	}
 ]

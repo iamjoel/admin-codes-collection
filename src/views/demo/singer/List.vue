@@ -2,9 +2,7 @@
 <template> 
   <div class="main">
     <j-search-condition @search="search">
-      <j-edit-item label="名称">
-        <el-input v-model="searchConditions.name" />
-      </j-edit-item>
+
     </j-search-condition>
 
     <j-grid-box :is-show-add-btn="isShow('add')" :add-url="addPagePath" :pager="pager" @pageChange="handleCurrentChange">

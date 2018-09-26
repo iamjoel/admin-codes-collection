@@ -1,26 +1,14 @@
 export default [
 	{
-		"routePath": "/music/song/update/:id",
-		"filePath": "music/song/Update"
+		"routePath": "/demo/singer/list",
+		"filePath": "demo/singer/List"
 	},
 	{
-		"routePath": "/music/song/view/:id",
-		"filePath": "music/song/Update"
+		"routePath": "/demo/singer/update/:id",
+		"filePath": "demo/singer/Update"
 	},
 	{
-		"routePath": "/music/singer/list",
-		"filePath": "music/singer/List"
-	},
-	{
-		"routePath": "/music/song/list",
-		"filePath": "music/song/List"
-	},
-	{
-		"routePath": "/music/singer/update/:id",
-		"filePath": "music/singer/Update"
-	},
-	{
-		"routePath": "/music/singer/view/:id",
-		"filePath": "music/singer/Update"
+		"routePath": "/demo/singer/view/:id",
+		"filePath": "demo/singer/Update"
 	}
 ]

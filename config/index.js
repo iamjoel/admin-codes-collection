@@ -23,7 +23,7 @@ var config = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 5001,
+    port: 9996,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
