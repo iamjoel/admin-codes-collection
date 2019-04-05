@@ -6,3 +6,4 @@ Mock.setup({
 })
 
 require('./singer')
+require('./picture.js')
